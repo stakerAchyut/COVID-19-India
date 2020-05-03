@@ -1,6 +1,7 @@
 import React from 'react';
 import { Select, FormControl, MenuItem, InputLabel } from '@material-ui/core';
 import { fetchAPI } from './../../API';
+import styles from './StatePicker.module.css';
 
 class StatePicker extends React.Component {
   state = {
@@ -17,12 +18,8 @@ class StatePicker extends React.Component {
     console.log('Inside StatePicker: ', this.state.data);
   }
   render() {
-    const form = {
-      width: '30%',
-      marginBottom: '30px',
-    };
     return (
-      <FormControl style={form}>
+      <FormControl className={styles.pickerStyle}>
         <InputLabel id="inputLabel">Total</InputLabel>
         <Select
           labelId="inputLabel"

@@ -2,10 +2,11 @@ import React from 'react';
 import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 import CountUp from 'react-countup';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import moment from 'moment';
 
 const card = {
-  container: (matches) => ({
-    margin: matches ? '2% 0' : '0 2%',
+  container: (matchMid, matches) => ({
+    margin: matchMid ? '2% 0' : matches ? '2% 8%' : '0 2%',
   }),
 };
 
@@ -27,7 +28,8 @@ const deaths = {
 
 const Cards = (props) => {
   console.log(props.data);
-  const matches = useMediaQuery('(max-width:770px)');
+  const matches = useMediaQuery('(max-width:900px)');
+  const matchMid = useMediaQuery('(max-width:770px)');
   return (
     <div>
       <Grid container justify="center" style={{ margin: '50px 0px' }}>
@@ -36,7 +38,11 @@ const Cards = (props) => {
           component={Card}
           xs={12}
           md={2}
-          style={Object.assign({}, card.container(matches), confirmed)}
+          style={Object.assign(
+            {},
+            card.container(matchMid, matches),
+            confirmed
+          )}
         >
           {props.data && (
             <CardContent>
@@ -52,10 +58,12 @@ const Cards = (props) => {
                 />
               </Typography>
               <Typography color="textSecondary">
-                {new Date(props.data.lastupdatedtime).toDateString()}
+                {moment(props.data.lastupdatedtime, 'DD-MM-YYYY').format(
+                  'ddd MMM DD YYYY'
+                )}
               </Typography>
               <Typography variant="body2">
-                Total number of COVID-19 cases
+                Total confirmed cases of COVID-19
               </Typography>
             </CardContent>
           )}
@@ -65,7 +73,7 @@ const Cards = (props) => {
           component={Card}
           xs={12}
           md={2}
-          style={Object.assign({}, card.container(matches), active)}
+          style={Object.assign({}, card.container(matchMid, matches), active)}
         >
           {props.data && (
             <CardContent>
@@ -81,7 +89,9 @@ const Cards = (props) => {
                 />
               </Typography>
               <Typography color="textSecondary">
-                {new Date(props.data.lastupdatedtime).toDateString()}
+                {moment(props.data.lastupdatedtime, 'DD-MM-YYYY').format(
+                  'ddd MMM DD YYYY'
+                )}
               </Typography>
               <Typography variant="body2">
                 Number of active cases of COVID-19
@@ -94,7 +104,11 @@ const Cards = (props) => {
           component={Card}
           xs={12}
           md={2}
-          style={Object.assign({}, card.container(matches), recovered)}
+          style={Object.assign(
+            {},
+            card.container(matchMid, matches),
+            recovered
+          )}
         >
           {props.data && (
             <CardContent>
@@ -110,7 +124,9 @@ const Cards = (props) => {
                 />
               </Typography>
               <Typography color="textSecondary">
-                {new Date(props.data.lastupdatedtime).toDateString()}
+                {moment(props.data.lastupdatedtime, 'DD-MM-YYYY').format(
+                  'ddd MMM DD YYYY'
+                )}
               </Typography>
               <Typography variant="body2">
                 Number of recoveries from COVID-19
@@ -123,7 +139,7 @@ const Cards = (props) => {
           component={Card}
           xs={12}
           md={2}
-          style={Object.assign({}, card.container(matches), deaths)}
+          style={Object.assign({}, card.container(matchMid, matches), deaths)}
         >
           {props.data && (
             <CardContent>
@@ -139,7 +155,9 @@ const Cards = (props) => {
                 />
               </Typography>
               <Typography color="textSecondary">
-                {new Date(props.data.lastupdatedtime).toDateString()}
+                {moment(props.data.lastupdatedtime, 'DD-MM-YYYY').format(
+                  'ddd MMM DD YYYY'
+                )}
               </Typography>
               <Typography variant="body2">
                 Number of deaths caused by COVID-19

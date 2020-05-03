@@ -5,6 +5,7 @@ import Chart from './Components/Chart/Chart';
 import StatePicker from './Components/StatePicker/StatePicker';
 import { fetchData } from './API';
 import covidImage from './Images/covid.png';
+import { Typography } from '@material-ui/core';
 
 class App extends React.Component {
   state = {
@@ -52,6 +53,7 @@ class App extends React.Component {
             <Cards data={value} />
             <StatePicker handleStates={this.handleStates} />
             <Chart data={value} states={states} />
+            <Typography>@Achyut Utpal</Typography>
           </React.Fragment>
         )}
       </div>

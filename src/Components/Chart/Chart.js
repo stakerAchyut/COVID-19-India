@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchDailyData } from '../../API';
 import { Line, Bar } from 'react-chartjs-2';
+import styles from './Chart.module.css';
 
 class Chart extends React.Component {
   state = {
@@ -17,12 +18,6 @@ class Chart extends React.Component {
 
   render() {
     const { data, states } = this.props;
-    const container = {
-      display: 'flex',
-      justifyContent: 'center',
-      width: '75%',
-      marginBottom: '50px',
-    };
     const lineChart = this.state.data.length ? (
       <Line
         data={{
@@ -81,7 +76,9 @@ class Chart extends React.Component {
     ) : null;
 
     return (
-      <div style={container}>{states.length !== 0 ? barChart : lineChart}</div>
+      <div className={styles.chartStyle}>
+        {states.length !== 0 ? barChart : lineChart}
+      </div>
     );
   }
 }

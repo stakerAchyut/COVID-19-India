@@ -1,0 +1,12 @@
+.chartStyle {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 770px) {
+    .chartStyle {
+        width: 100%;
+    }
+}
