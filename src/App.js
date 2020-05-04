@@ -53,7 +53,9 @@ class App extends React.Component {
             <Cards data={value} />
             <StatePicker handleStates={this.handleStates} />
             <Chart data={value} states={states} />
-            <Typography>@Achyut Utpal</Typography>
+            <Typography style={{ opacity: '0.5', marginLeft: 'auto' }}>
+              @Achyut Utpal
+            </Typography>
           </React.Fragment>
         )}
       </div>

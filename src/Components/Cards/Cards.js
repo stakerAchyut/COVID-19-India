@@ -6,7 +6,13 @@ import moment from 'moment';
 
 const card = {
   container: (matchMid, matches) => ({
-    margin: matchMid ? '2% 0' : matches ? '2% 8%' : '0 2%',
+    margin: matchMid ? '2% 4%' : matches ? '2% 8%' : '0 2%',
+  }),
+};
+
+const gridStyle = {
+  container: (matchMid) => ({
+    margin: matchMid ? '25px 0' : '50px 0',
   }),
 };
 
@@ -32,7 +38,7 @@ const Cards = (props) => {
   const matchMid = useMediaQuery('(max-width:770px)');
   return (
     <div>
-      <Grid container justify="center" style={{ margin: '50px 0px' }}>
+      <Grid container justify="center" style={gridStyle.container(matchMid)}>
         <Grid
           item
           component={Card}
@@ -63,7 +69,7 @@ const Cards = (props) => {
                 )}
               </Typography>
               <Typography variant="body2">
-                Total confirmed cases of COVID-19
+                Total confirmed cases of COVID&#8209;19
               </Typography>
             </CardContent>
           )}
@@ -94,7 +100,7 @@ const Cards = (props) => {
                 )}
               </Typography>
               <Typography variant="body2">
-                Number of active cases of COVID-19
+                Number of active cases of COVID&#8209;19
               </Typography>
             </CardContent>
           )}
@@ -129,7 +135,7 @@ const Cards = (props) => {
                 )}
               </Typography>
               <Typography variant="body2">
-                Number of recoveries from COVID-19
+                Number of recoveries from COVID&#8209;19
               </Typography>
             </CardContent>
           )}
@@ -160,7 +166,7 @@ const Cards = (props) => {
                 )}
               </Typography>
               <Typography variant="body2">
-                Number of deaths caused by COVID-19
+                Number of deaths caused by COVID&#8209;19
               </Typography>
             </CardContent>
           )}
