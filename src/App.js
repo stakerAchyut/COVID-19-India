@@ -5,7 +5,7 @@ import Chart from './Components/Chart/Chart';
 import StatePicker from './Components/StatePicker/StatePicker';
 import { fetchData } from './API';
 import covidImage from './Images/covid.png';
-import { Typography } from '@material-ui/core';
+import { Typography, Button } from '@material-ui/core';
 
 class App extends React.Component {
   state = {
@@ -36,6 +36,9 @@ class App extends React.Component {
     });
     console.log(temp);
   };
+  handleLogin = () => {
+    console.log('Inside handleLogin');
+  };
   isEmpty = () => {
     for (var i in this.state.value) {
       return false;
@@ -56,6 +59,13 @@ class App extends React.Component {
             <Typography style={{ opacity: '0.5', marginLeft: 'auto' }}>
               @Achyut Utpal
             </Typography>
+            <Button
+              onClick={() => this.handleLogin()}
+              variant="contained"
+              style={{ position: 'absolute', right: '0px', top: '0px' }}
+            >
+              Login
+            </Button>
           </React.Fragment>
         )}
       </div>
