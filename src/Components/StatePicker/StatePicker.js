@@ -2,6 +2,7 @@ import React from 'react';
 import { Select, FormControl, MenuItem, InputLabel } from '@material-ui/core';
 import { fetchAPI } from './../../API';
 import styles from './StatePicker.module.css';
+import "regenerator-runtime/runtime";
 
 class StatePicker extends React.Component {
   state = {

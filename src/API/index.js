@@ -1,4 +1,5 @@
 import axios from 'axios';
+import "regenerator-runtime/runtime";
 
 const url = 'https://api.covid19india.org/data.json';
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchDailyData } from '../../API';
 import { Line, Bar } from 'react-chartjs-2';
 import styles from './Chart.module.css';
+import "regenerator-runtime/runtime";
 
 class Chart extends React.Component {
   state = {

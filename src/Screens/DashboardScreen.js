@@ -7,13 +7,18 @@ import { fetchData } from '../API';
 import covidImage from '../Images/covid.png';
 import history from '../history/index';
 import { Typography, Button } from '@material-ui/core'
+import "regenerator-runtime/runtime";
 
 class DashboardScreen extends React.Component {
-    state = {
-      data: [],
-      states: '',
-      value: {},
-    };
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        data: [],
+        states: '',
+        value: {},
+      };
+    }
 
 
     async componentDidMount() {
